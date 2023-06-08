@@ -1,0 +1,170 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Min Hemsida</title>
+		<style>
+			body {
+				background-color: #2c3e50; /* Bakgrundsfärg på sidan */
+				color: white; /* Textfärg på sidan */
+				font-family: 'Courier New', Courier, monospace; /* Typsnitt för sidan */
+			}
+
+			.navbar {
+				overflow: hidden; /* Överflöd av innehåll döljs */
+				background-color: #2c3e50; /* Bakgrundsfärg på navigationsfältet */
+			}
+			
+			.navbar a {
+				float: left; /* Vänsterjusterar länkarna i navigationsfältet */
+				display: block; /* Visar länkarna som blockelement */
+				color: white; /* Textfärg för länkarna */
+				text-align: center; /* Centrerar länktexten */
+				padding: 14px 16px; /* Lägger till utfyllnad runt länkarna */
+				text-decoration: none; /* Tar bort understrykning av länktexten */
+			}
+
+			
+			.navbar a:hover {
+				background-color: #ddd; /* Bakgrundsfärg för länkarna vid hover */
+				color: black; /* Textfärg för länkarna vid hover */
+			}
+
+			
+			.content {
+				padding: 50px; /* Lägger till utfyllnad runt innehållet */
+				font-size: 1.2em; /* Textstorlek för innehållet */
+				font-family: 'Courier New', Courier, monospace; /* Typsnitt för innehållet */
+			}
+		
+			.section {
+				display: none; /* Döljer innehållet för alla sektioner */
+			}
+
+		
+			.active {
+				display: block; /* Visar innehållet för den aktiva sektionen */
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="navbar">
+			<a href="#" onclick="showContent(event, 'Counter Strike')">Counter Strike</a> <!-- Länk för Counter Strike-sektionen -->
+			<a href="#" onclick="showContent(event, 'Esport')">Esport</a> <!-- Länk för Esport-sektionen -->
+			<a href="#" onclick="showContent(event, 'Gameplay')">Gameplay</a> <!-- Länk för Gameplay-sektionen -->
+			<a href="#" onclick="showContent(event, 'Summary')">Sammanfattning</a> <!-- Länk för Sammanfattning-sektionen -->
+		</div>
+
+		<div class="content section active" id="CounterStrike">
+			<h1>CSGO</h1>
+			<p>CSGO (Counter-Strike: Global Offensive) är ett förstapersonsskjutarspel som spelas online av miljontals människor runt om i världen.</p>
+			<img src="https://live.staticflickr.com/1787/41587176930_006cd1cdfd_b.jpg" alt="CounterStrike Image" width="25%">
+			<p>Spelet innehåller olika spellägen och kartor, där två lag (terrorister och counter-terrorister) slåss mot varandra för att uppnå olika mål. CSGO har en stor och dedikerad community, och det arrangeras ofta turneringar och tävlingar där spelare från hela världen kan tävla mot varandra.</p>
+			<h1>Trailer</h1>
+			<div id="player">	
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/edYCtaNueQY" title="YouTube video player" style="border: none;" allowfullscreen></iframe>
+			</div>
+		</div>
+		
+		<div class="content section" id="Esport">
+			<h1>Esport on the rise</h1>
+			<p>Inom esporten är CSGO en av de mest populära spelen, med stora turneringar som lockar miljontals tittare. Ett av de största evenemangen är CSGO Major Championships, där de bästa lagen i världen tävlar mot varandra. Esportscenen är fylld med passionerade fans och professionella spelare som tränar hårt för att förbättra sina färdigheter och ta hem priser.</p>
+			<img src="https://live.staticflickr.com/1602/26576113601_0d8d747467_b.jpg" alt="Esport Image" width="40%">
+		</div>
+		
+		<div class="content section" id="Gameplay">
+			<h1>Basics</h1>
+			<p>CSGO är ett förstapersonsskjutarspel där två lag, terroristerna och counter-terroristerna, kämpar mot varandra. Terroristerna försöker placera och detonera en bomb, medan counter-terroristerna försöker stoppa dem. CSGO kräver snabb reaktionsförmåga, precision och strategiskt tänkande och är ett lagbaserat spel där kommunikation och samarbete är viktigt. För nya spelare rekommenderas att börja med grundläggande träning och spela casuella matcher innan man går vidare till tävlingsmatcher.</p>
+			<img src="https://media.snl.no/media/65981/standard_dust2.png" alt="Gameplay Image" width="50%">
+		</div>
+		
+		<div class="content section" id="Summary">
+			<h1>Summarized</h1>
+			<p>Många människor njuter av att spela CSGO på grund av dess intensiva och konkurrensinriktade gameplay. Spelet kräver snabb reaktionsförmåga, strategisk tänkande och samarbete, vilket gör det till ett väldigt tävlingsinriktat spel och en av världens mest populära.
+		</p>
+		</div>
+	<!-- HTML-kod för att visa en bild -->
+	<div>
+		<img src="https://images.cdn.yle.fi/image/upload/f_auto,fl_progressive/fl_keep_iptc/q_88/w_2000,h_1124,c_crop,x_0,y_100/w_700/v1406540913/17-682153d61af83946f.jpg" alt="Sammanfattningsbild" width="45%">
+	</div>
+
+	<!-- JavaScript-kod för att visa/hidea sektioner -->
+	<script>
+		function showContent(event, sectionId) {
+			// Hindra standard-beteendet vid klick på länk
+			event.preventDefault();
+
+			// Hämta alla element med klass "section"
+			var sections = document.getElementsByClassName("section");
+			// Ta bort klassen "active" från alla element med klass "section"
+			for (var i = 0; i < sections.length; i++) {
+				sections[i].classList.remove("active");
+			}
+
+			// Lägg till klassen "active" på elementet med id "sectionId"
+			document.getElementById(sectionId).classList.add("active");
+		}
+	</script>
+
+
+	<title>Dark/Light Mode Toggle Button</title>
+	<style>
+		/* Bakgrundsfärg och textfärg på sidan */
+		body {
+			background-color:rgb(156, 153, 167);
+			color: #000;
+			transition: background-color 0.5s ease;
+		}
+
+		/* Bakgrundsfärg och textfärg i nattläge */
+		.dark-mode {
+			background-color: #222;
+			color: rgb(156, 153, 167);
+		}
+		
+		/* Utseende på knappen */
+		.btn-toggle {
+			position: fixed;
+			top: 20px;
+			right: 20px;
+			padding: 10px 20px;
+			border-radius: 5px;
+			cursor: pointer;
+			background-color: #eee;
+			color: #000;
+			transition: background-color 0.5s ease;
+		}
+
+		/* Utseende på knappen när musen svävar över den */
+		.btn-toggle:hover {
+			background-color: #ddd;
+		}
+	</style>
+	<!-- Knapp för att växla mellan dag- och nattläge -->
+	<button class="btn-toggle">Dag eller nattläge</button>
+
+	<script>
+		/* Funktion för att visa innehållet beroende på vilket sektion som valts */
+		function showContent(event, sectionId) {
+			event.preventDefault();
+
+			var sections = document.getElementsByClassName("section");
+			for (var i = 0; i < sections.length; i++) {
+				sections[i].classList.remove("active");
+			}
+
+			document.getElementById(sectionId).classList.add("active");
+		}
+
+		/* Klickhändelse på knappen som växlar mellan dag- och nattläge */
+		const toggleButton = document.querySelector('.btn-toggle');
+		const body = document.querySelector('body');
+
+		toggleButton.addEventListener('click', function() {
+			body.classList.toggle('dark-mode');
+		});
+	</script>
+	</html> 
+
+
+
